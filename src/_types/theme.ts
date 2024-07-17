@@ -2,14 +2,16 @@ import { webLightTheme } from '@fluentui/react-components';
 
 export const customLightTheme = {
   ...webLightTheme,
-  PINK_50: '#edbbe7',
-  PINK_100: '#c239b3',
-  PINK_200: '#af33a1',
-  PINK_300: '#6d2064',
-  SLATE: '#4A4A68',
-  LIGHT_SLATE: '#8c8ca1',
-  DORIAN: '#ECF1f4',
-  CLOUD: '#F1FcF3',
-  PRIMARY: '#4b4ded',
-  ONYX: '#0e0e2c',
+  pink: '#edbbe7',
+  pink_100: '#c239b3',
+  pink_200: '#af33a1',
+  pink_300: '#6d2064',
+  slate: '#4A4A68',
+  light_slate: '#8c8ca1',
+  dorian: '#ECF1f4',
+  cloud: '#F1FcF3',
+  primary: '#4b4ded',
+  onyx: '#0e0e2c',
 };
+
+export type LightThemeRecord = typeof customLightTheme;
