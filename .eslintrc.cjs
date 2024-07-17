@@ -20,6 +20,13 @@ module.exports = {
     ],
     'import/order': [
       'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
       {
         groups: [
           'type',
