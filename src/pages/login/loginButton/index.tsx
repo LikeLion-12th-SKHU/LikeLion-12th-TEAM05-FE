@@ -11,7 +11,7 @@ export const LoginBanner = () => {
           <div className="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4">
             <People width={50} height={50} />
           </div>
-          <p className="flex items-center text-sm text-gray-500 dark:text-gray-400 w-full">
+          <p className="flex items-center text-sm text-gray-500 dark:text-gray-400 w-full font-bold">
             계정이 아직 없다면
           </p>
         </div>
