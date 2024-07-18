@@ -37,7 +37,7 @@ export const Button = ({
       as="button"
       icon={icon}
       {...rest}
-      className={overrides.button}
+      className={rest.className ?? overrides.button}
     >
       {rest.children}
     </FluentUiButton>
