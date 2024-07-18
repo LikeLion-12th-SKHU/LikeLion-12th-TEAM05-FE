@@ -17,7 +17,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-[rgba(140,140,161,0.9)] text-[#4B4DED] hover:bg-gray-500 focus:ring-gray-400',
+          'bg-[#EFEFFD] text-[#4B4DED] hover:bg-gray-500 focus:ring-gray-400',
         secondary:
           'bg-[#0E0E2C] text-[#FAFCFE] hover:bg-[#1A1A3D] focus:ring-[#0E0E2C]',
         register:

@@ -3,7 +3,7 @@ const flowbite = require('flowbite-react/tailwind');
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', flowbite.content()],
-  darkMode: 'selector',
+  darkMode: 'class',
   theme: {
     colors: {
       PINK_50: '#edbbe7',
@@ -16,6 +16,7 @@ export default {
       CLOUD: '#F1FcF3',
       PRIMARY: '#4b4ded',
       ONYX: '#0e0e2c',
+      WHITE: '#FAFCFE',
     },
     extend: {},
   },

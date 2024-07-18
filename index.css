@@ -7,11 +7,28 @@
     @apply box-border;
   }
 
-  body {
-    @apply bg-PRIMARY text-[#FAFCFE];
+  body,
+  html {
+    @apply bg-[#4B4DED] text-[#FAFCFE];
+    height: 100vh;
   }
 
   a {
     @apply no-underline;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-[#0E0E2C] text-[#FAFCFE];
+      height: 100vh;
+    }
+  }
+
+  @media ((prefers-color-scheme: light)) {
+    body,
+    html {
+      @apply bg-[#4B4DED] text-[#FAFCFE];
+      height: 100vh;
+    }
   }
 }

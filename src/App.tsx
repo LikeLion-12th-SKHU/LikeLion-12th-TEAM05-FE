@@ -4,9 +4,9 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import '../index.css';
-import { ThemeProvider } from '@/_context/themeContext';
+
+import { Flowbite } from 'flowbite-react';
 import { routeTree } from './routeTree.gen';
-import 'flowbite';
 
 const router = createRouter({ routeTree });
 
@@ -34,11 +34,11 @@ if (!rootElement.innerHTML) {
 
   root.render(
     <StrictMode>
-      <ThemeProvider>
+      <Flowbite>
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
         </QueryClientProvider>
-      </ThemeProvider>
+      </Flowbite>
     </StrictMode>
   );
 }
