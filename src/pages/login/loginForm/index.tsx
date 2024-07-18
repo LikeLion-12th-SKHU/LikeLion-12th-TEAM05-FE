@@ -1,11 +1,15 @@
+import Logo from '../../../../public/login.svg?react';
 import { z } from 'zod';
 
 import { useState } from 'react';
+
 import { LoginBanner } from '@/pages/login/loginButton';
+import { Input } from '@/_components';
 
 interface LoginFormProps {
   onSubmit: (data: z.infer<typeof loginSchema>) => void;
 }
+
 const loginSchema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
@@ -25,12 +29,24 @@ export const LoginForm = (onSubmit: LoginFormProps) => {
     email: '',
     password: '',
   });
-  return (
-    <section className="d-flex flex-column justify-content-center align-items-center">
-      <div className="gap-10 flex flex-col w-[500px] h-[500px] justify-center rounded-xl items-center mx-auto bg-WHITE my-[25px]">
-        <p className="text-LIGHT_SLATE text-2xl">로그인 하여 즐겨보세요</p>
 
-        <div className="flex gap-[10px]">
+  return (
+    <section className="flex flex-col gap-4 p-5">
+      <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto bg-white rounded-xl shadow-lg">
+        <Logo className="w-40 h-40 mt-6" />
+
+        <p className="mt-6 text-2xl font-medium text-LIGHT_SLATE font-bold">
+          로그인 하여 즐겨보세요
+        </p>
+
+        <div
+          style={{
+            margin: '0 auto',
+          }}
+        >
+          <Input placeholder="이름" id="name" className="w-[350px]" />
+          <Input placeholder="이메일" id="email" className="w-[350px]" />
+          <Input placeholder="비밀번호" id="password" className="w-[350px]" />
           <LoginBanner />
         </div>
       </div>

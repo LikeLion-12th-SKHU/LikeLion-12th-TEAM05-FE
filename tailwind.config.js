@@ -11,6 +11,7 @@ export default {
       PINK_200: '#af33a1',
       PINK_300: '#6d2064',
       SLATE: '#4A4A68',
+      EVERGREEN: '#ED4B9E',
       LIGHT_SLATE: '#8c8ca1',
       DORIAN: '#ECF1f4',
       CLOUD: '#F1FcF3',
@@ -18,7 +19,11 @@ export default {
       ONYX: '#0e0e2c',
       WHITE: '#FAFCFE',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        Pretendard: ['Pretendard'],
+      },
+    },
   },
   plugins: [flowbite.plugin()],
 };
