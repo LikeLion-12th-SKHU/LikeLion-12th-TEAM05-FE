@@ -10,7 +10,7 @@ export const ThemeChangeButton = () => {
   return (
     <Button
       onClick={toggleTheme}
-      size="small"
+      variant={'primary'}
       style={{
         background: 'none',
         border: 'none',
