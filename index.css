@@ -10,4 +10,8 @@
   body {
     @apply bg-PRIMARY text-[#FAFCFE];
   }
+
+  a {
+    @apply no-underline;
+  }
 }
