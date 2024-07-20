@@ -6,7 +6,7 @@ import { DarkThemeToggle } from 'flowbite-react';
 export const NavBar = () => {
   const { toggleMode } = useThemeMode();
   return (
-    <Navbar fluid rounded className="bg-primary">
+    <Navbar fluid rounded className="bg-primary dark:bg-ONYX">
       <Navbar.Brand className="flex items-center gap-3">
         <Walk width={50} height={50} />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">

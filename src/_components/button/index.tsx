@@ -1,68 +1,45 @@
+import {
+  Button as FluentUiButton,
+  tokens,
+  makeStyles,
+} from '@fluentui/react-components';
+import { ReactNode } from '@tanstack/react-router';
 import { ComponentPropsWithoutRef } from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
-import { cn } from '@/_utils';
-import { Button as FlowBiteButton } from 'flowbite-react';
 
-interface ButtonProps
-  extends ComponentPropsWithoutRef<'button'>,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   as?: 'a' | 'button';
+  icon?: ReactNode;
   shape?: 'circular' | 'square' | 'rounded';
+<<<<<<< Updated upstream
+  size?: 'small' | 'medium' | 'large';
+=======
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  block?: boolean;
+>>>>>>> Stashed changes
 }
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center transition-colors duration-300',
-  {
-    variants: {
-      variant: {
-        primary:
-          'bg-[#EFEFFD] text-[#4B4DED] hover:bg-gray-500 focus:ring-gray-400',
-        secondary:
-          'bg-[#0E0E2C] text-[#FAFCFE] hover:bg-[#1A1A3D] focus:ring-[#0E0E2C]',
-        register:
-          'bg-[#4B4DED] text-[#FFFFFF] hover:bg-[#5A5CF0] focus:ring-[#4B4DED]',
-      },
-      weight: {
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-      },
-      size: {
-        xs: 'px-2 py-1 text-xs',
-        sm: 'px-3 py-2 text-sm',
-        md: 'px-4 py-2 text-base',
-        lg: 'px-6 py-3 text-lg',
-        xl: 'px-8 py-4 text-xl',
-      },
-      shape: {
-        circular: 'rounded-full',
-        square: 'rounded-none',
-        rounded: 'rounded-md',
-      },
-    },
-    compoundVariants: [
-      {
-        variant: 'primary',
-        shape: 'circular',
-        class: 'px-3 py-3',
-      },
-    ],
-    defaultVariants: {
-      variant: 'secondary',
-      weight: 'medium',
-      size: 'md',
-      shape: 'rounded',
-    },
-  }
-);
+const useOverrides = makeStyles({
+  button: {
+    padding: `${tokens.spacingHorizontalM} ${tokens.spacingHorizontalM}`,
+    color: '#4B4DED',
+    backgroundColor: '#EFEFFD',
+    fontWeight: 550,
+  },
+});
 
 export const Button = ({
-  size = 'md',
+  size = 'medium',
   shape = 'rounded',
+<<<<<<< Updated upstream
+  icon = null,
+  as,
+  ...rest
+}: ButtonProps) => {
+  const overrides = useOverrides();
+=======
   variant = 'secondary',
   weight = 'medium',
+  block = false,
   as,
   ...rest
 }: ButtonProps) => {
@@ -72,12 +49,22 @@ export const Button = ({
       weight,
       size,
       shape,
-    })
+    }),
+    block ? 'w-full' : 'inline-flex',
+    rest.className
   );
 
+>>>>>>> Stashed changes
   return (
-    <FlowBiteButton className={className} {...rest}>
+    <FluentUiButton
+      size={size}
+      shape={shape}
+      as="button"
+      icon={icon}
+      {...rest}
+      className={rest.className ?? overrides.button}
+    >
       {rest.children}
-    </FlowBiteButton>
+    </FluentUiButton>
   );
 };

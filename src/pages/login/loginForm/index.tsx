@@ -1,16 +1,14 @@
 import Logo from '../../../../public/login.svg?react';
 import { z, ZodError } from 'zod';
-
 import { ChangeEvent, useState } from 'react';
-
 import { LoginBanner } from '@/pages/login/loginButton';
-import { Input } from '@/_components';
+import { Button, Input } from '@/_components';
 
 interface LoginFormProps {
   onSubmit: (data: z.infer<typeof loginSchema>) => void;
 }
 
-const loginSchema = z.object({
+export const loginSchema = z.object({
   name: z.string().min(1, '이름은 1글자 이상 입력해주세요.'),
   email: z.string().email('올바른 이메일 형식으로 입력해주세요.'),
   password: z
@@ -46,11 +44,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
           로그인 하여 즐겨보세요
         </p>
 
-        <div
-          style={{
-            margin: '0 auto',
-          }}
-        >
+        <div style={{ margin: '0 auto' }}>
           <Input
             placeholder="이름"
             id="name"
@@ -59,7 +53,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
             onChange={onChange}
             className="w-[350px]"
           />
-          <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+          <p className="mt-2 text-sm text-red-600 dark:text-red-500 flex justify-center">
             <span className="font-medium">
               {error?.flatten().fieldErrors['name']}
             </span>
@@ -72,7 +66,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
             onChange={onChange}
             className="w-[350px]"
           />
-          <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+          <p className="mt-2 text-sm text-red-600 dark:text-red-500 flex justify-center">
             <span className="font-medium">
               {error?.flatten().fieldErrors['email']}
             </span>
@@ -85,29 +79,30 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
             onChange={onChange}
             className="w-[350px]"
           />
-          <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+          <p className="mt-2 text-sm text-red-600 dark:text-red-500 flex justify-center">
             <span className="font-medium">
               {error?.flatten().fieldErrors['password']}
             </span>
           </p>
 
-          <div
-            style={{
-              color: 'red',
-            }}
+          <Button
+            block
             onClick={() => {
               try {
                 const a = loginSchema.parse(formData);
                 setError(null);
+                onSubmit(a); // 폼 제출 함수 호출
               } catch (e) {
                 if (e instanceof ZodError) {
                   setError(e);
                 }
               }
             }}
+            variant={'primary'}
+            size="md"
           >
-            asd
-          </div>
+            로그인
+          </Button>
           <LoginBanner />
         </div>
       </div>
